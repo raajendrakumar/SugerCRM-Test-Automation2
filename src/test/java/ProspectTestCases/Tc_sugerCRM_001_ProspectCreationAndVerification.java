@@ -51,8 +51,8 @@ public class Tc_sugerCRM_001_ProspectCreationAndVerification extends BaseClassLo
 			home.ClicksubCreate();
 			Thread.sleep(4000);
 
-			Prospectdata.put("submissionName", "DevTest_" + getTimeStamp());
-			home.entersubName(Prospectdata.get("submissionName"));
+			// Prospectdata.put("submissionName", "DevTest_" + getTimeStamp());
+			home.entersubName(Prospectdata.get("CompanyName"));
 			Thread.sleep(2000);
 
 			home.ClickcapName();
