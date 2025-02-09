@@ -56,17 +56,11 @@ public class SugarCRMLogin extends WebDriverCommonLib {
 	public void slogin() {
 		try {
 			wcl.waitforpageload();
-			Thread.sleep(2500);
-
 			logger.info("Login Started");
-
 			entervalue(Constants.Username1, username1);
-			Thread.sleep(1000);
-
 			entervalue(Constants.Password1, password1);
 			buttonClick(slogin);
 			logger.info("Logged in Successfully");
-
 		} catch (Exception e) {
 
 			ast.assertTrue(false, "Unable to Login");

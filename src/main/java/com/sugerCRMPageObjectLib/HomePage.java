@@ -1,12 +1,5 @@
 package com.sugerCRMPageObjectLib;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-
-import com.sugarCRMGenericLib.WebDriverCommonLib;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -92,6 +85,9 @@ public class HomePage extends WebDriverCommonLib {
 	private WebElement subarw;
 	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-primary'][contains(text(),'Create')]")
 	private WebElement subCreate;
+	@FindBy(how = How.XPATH, using = "//div[@class='rc-handle-container']/following-sibling::table/tbody/tr[' + rnum + ']/td[1]/span/div//following::a")
+	private WebElement orgcreated;
+
 	// ---For popupselectoption---//
 	@FindBy(how = How.XPATH, using = "//input[@name='name']")
 	private WebElement subName;
@@ -99,8 +95,12 @@ public class HomePage extends WebDriverCommonLib {
 	// ---For popupselectoption---//
 	@FindBy(how = How.PARTIAL_LINK_TEXT, using = "DevTest_")
 	private WebElement crdOrg;
-	// ---For popupselectoption---//
-	@FindBy(how = How.XPATH, using = "//h4[text()='Submissions']")
+	@FindBy(how = How.XPATH, using = "//button[@aria-label='Submissions menu']//i")
+	private WebElement subMenu;
+	@FindBy(how = How.XPATH, using = "//div[@class='table-cell full-width flex']/input[@class='search-name']")
+	private WebElement orgSch;
+
+	@FindBy(how = How.XPATH, using = "//div[@class='subpanel-header ui-sortable-handle']//div//span//following-sibling::h4[text()='Submissions']")
 	private WebElement subTab;
 
 	@FindBy(how = How.XPATH, using = "//div[@id='Accounts_sidebar-nav-item']//descendant::span/child::span[contains(text(),'Organizations')]")
@@ -132,8 +132,7 @@ public class HomePage extends WebDriverCommonLib {
 	// ---For MainSearchBtn---//
 	@FindBy(how = How.XPATH, using = "//input[@name='date_received_c']")
 	private WebElement recSub;
-	@FindBy(how = How.XPATH, using = "//select[@id='New']")
-	private WebElement SBU;
+
 	// ---For PopupClosebtn---//
 	@FindBy(how = How.XPATH, using = "//span[@class='text-overflow'][text()='Submission Type']/following::span[2]")
 	private WebElement subtyp;
@@ -146,10 +145,6 @@ public class HomePage extends WebDriverCommonLib {
 	// ---For PopupStaffCode---//
 	@FindBy(how = How.XPATH, using = "//div[@id='select2-drop']//div[@class='select2-result-label'][normalize-space()='Search and Select...']")
 	private WebElement brkSearch;
-
-	// ---For PopupStaffType---//
-	@FindBy(how = How.XPATH, using = "/html[1]/body[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[1]/span[1]/input[1]")
-	private WebElement brkrad;
 
 	// ---For PopupStaffMobile---//
 	@FindBy(how = How.XPATH, using = "//span[@class='text-overflow'][text()='Captive Executive']/following::span[2]")
@@ -196,7 +191,26 @@ public class HomePage extends WebDriverCommonLib {
 	@FindBy(how = How.XPATH, using = "//span[@class='text-overflow'][text()='Pod Structure']/following::span[2]")
 	private WebElement prostru;
 
+	// ---For ProductsearchCancelbtn---//
+	@FindBy(how = How.XPATH, using = "//div[@class='ellipsis_inline relate-field-container']//a[contains(@href,'Opportunities')]")
+	private WebElement subNamelk;
+	@FindBy(how = How.XPATH, using = "//span[normalize-space()='System Details']")
+	private WebElement systemdetail;
+	// ---For ProductsearchCancelbtn---//
+	@FindBy(how = How.XPATH, using = "//span[@data-fieldname='pega_case_no_c']/child::span/child::div")
+	private WebElement ProspectNo;
+	// ---For ProductsearchCancelbtn---//
+	@FindBy(how = How.XPATH, using = "//button[@aria-label='User Menu']//i[@class='sicon sicon-chevron-down']")
+	private WebElement usermenu;
+	// ---For ProductsearchCancelbtn---//
+	@FindBy(how = How.XPATH, using = "//a[normalize-space()='Log Out']")
+	private WebElement logout;
+
 	// ----------------------Basic Functions----------------------//
+
+	public void enterCreatedOrgName(int rnum) {
+		buttonClick(orgcreated);
+	}
 
 	public void ClickOrBtn() {
 		buttonClick(OrBtn);
@@ -206,19 +220,16 @@ public class HomePage extends WebDriverCommonLib {
 		buttonClick(crorgdrpdn);
 	}
 
-	public void Clickexpbtn() {
+	public void mouseHoverexpbtn() {
+		mouseHover(expbtn);
+	}
+
+	public void mouseClickexpbtn() {
 		buttonClick(expbtn);
 	}
 
-	public void mouseHoverexpbtn() throws InterruptedException {
-		mouseHover(expbtn);
-	}
-
-	public void mouseClickexpbtn() throws InterruptedException {
-		mouseHover(expbtn);
-	}
-
 	public void ClickCreateBtn() {
+		waitForElementToBePresent(CreateBtn);
 		buttonClick(CreateBtn);
 	}
 
@@ -238,6 +249,7 @@ public class HomePage extends WebDriverCommonLib {
 	String company = "DevTest_" + getTimeStamp();
 
 	public void enterOrgName(String compNme) {
+		waitForElementToBePresent(companyName);
 		entervalue(compNme, companyName);
 	}
 
@@ -248,6 +260,7 @@ public class HomePage extends WebDriverCommonLib {
 
 	// --------For enter AdditionalNames-----------//
 	public void EnterAdditionalNames(String adname) {
+		waitForElementToBePresent(AdditionalNames);
 		entervalue(adname, AdditionalNames);
 	}
 
@@ -262,6 +275,7 @@ public class HomePage extends WebDriverCommonLib {
 
 	// --------For enter PhyStreetfld-----------//
 	public void EnterPhyStreetfld(String Pstreet) {
+		waitForElementToBePresent(PhyStreetfld);
 		entervalue(Pstreet, PhyStreetfld);
 	}
 
@@ -272,6 +286,7 @@ public class HomePage extends WebDriverCommonLib {
 
 	// --------For enter PhyCityfld-----------//
 	public void EnterPhyCityfld(String Pcity) {
+		waitForElementToBePresent(PhyCityfld);
 		entervalue(Pcity, PhyCityfld);
 	}
 
@@ -304,11 +319,13 @@ public class HomePage extends WebDriverCommonLib {
 		buttonClick(savebtn);
 	}
 
-	public void ClickcrdOrg() throws InterruptedException {
-		mouseHover(crdOrg);
+	public void ClickcrdOrg() {
+		// waitForElementToBePresent(crdOrg);
+		buttonClick(crdOrg);
 	}
 
 	public void Clickorgbtn() {
+		// waitForElementToBePresent(orgbtn);
 		buttonClick(orgbtn);
 	}
 
@@ -320,15 +337,18 @@ public class HomePage extends WebDriverCommonLib {
 		buttonClick(subSideBtn);
 	}
 
-	public void mouseHoversubTab() throws InterruptedException {
+	public void mouseHoversubTab() {
+		waitForElementToBePresent(subTab);
 		mouseHover(subTab);
 	}
 
-	public void mouseHoverClicksublnk() throws InterruptedException {
-		mouseHover(sublnk);
+	public void Clicksublnk() {
+		waitForElementToBePresent(sublnk);
+		buttonClick(sublnk);
 	}
 
 	public void ClickcapName() {
+		waitForElementToBePresent(capName);
 		buttonClick(capName);
 	}
 
@@ -336,15 +356,28 @@ public class HomePage extends WebDriverCommonLib {
 		buttonClick(subSidebarBtn);
 	}
 
+	public void mouseHoversubSidebarBtn() {
+		mouseHover(subSidebarBtn);
+	}
+
+	public void ClicksubMenu() {
+		buttonClick(subMenu);
+	}
+
+	public void Clickorgcreated() {
+		buttonClick(orgcreated);
+	}
+
 	String submissionName = "DevTest_" + getTimeStamp();
 
 	public void entersubName(String subNme) {
+		waitForElementToBePresent(subName);
 		entervalue(subNme, subName);
 	}
 
 	// ---get select AdditionalNames---//
 	public String getEntersubName() {
-		return getvalue(companyName);
+		return getvalue(subName);
 	}
 
 	// --------For enter PhyCityfld-----------//
@@ -444,7 +477,44 @@ public class HomePage extends WebDriverCommonLib {
 		return getvalue(cascover);
 	}
 
+	public void EnterorgSch(String orgSearch) {
+		entervalue(orgSearch, orgSch);
+		orgSch.sendKeys(Keys.ENTER);
+
+	}
+
+	// --------For get PhyCityfld-----------//
+	public String getorgSearch() {
+		return getvalue(orgSch);
+	}
+
 	public void Clickpcsvbtn() {
 		buttonClick(pcsvbtn);
+	}
+
+	public void ClicklsubNamelk() {
+		buttonClick(subNamelk);
+	}
+
+	public void Clicksystemdetail() {
+		waitForElementToBePresent(systemdetail);
+		buttonClick(systemdetail);
+	}
+
+	public void TextProspectNo() {
+		getText(ProspectNo);
+	}
+
+	// ---For selectSBU---//
+	public void selectlogout(String logout) {
+		selectvalue(logout, usermenu);
+	}
+
+	public void Clickusermenu() {
+		buttonClick(usermenu);
+	}
+
+	public void Clicklogout() {
+		buttonClick(logout);
 	}
 }

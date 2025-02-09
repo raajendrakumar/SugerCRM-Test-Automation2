@@ -18,7 +18,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -667,21 +666,16 @@ public class WebDriverCommonLib extends Browser {
 		move.build().perform();
 	}
 
-	public void mouseHover(WebElement element) throws InterruptedException {
-
-		for (int i = 0; i < 3; i++) {
-			try {
-				Actions actions = new Actions(driver);
-				actions.moveToElement(element).perform();
-				Thread.sleep(3000);
-				actions.moveToElement(element).click().perform();
-				Thread.sleep(3000);
-				break; // Exit loop if successful
-			} catch (StaleElementReferenceException e) {
-				System.out.println("Stale Element, retrying...");
-			}
+	public void mouseHover(WebElement element) {
+		try {
+			Actions actions = new Actions(driver);
+			logger.info("Mouse Hover Element Moved...");
+			driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+			actions.moveToElement(element).perform();
+			logger.info("Completed Waiting for Element Present");
+		} catch (Exception e) {
+			ast.assertTrue(false, "Message: " + e.getMessage());
 		}
-
 	}
 
 }

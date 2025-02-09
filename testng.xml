@@ -3,8 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-     
-      <class name="ProspectTestCases.Tc_Devstudio_001_ProspectCreationAndVerification"/>
+      <class name="ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

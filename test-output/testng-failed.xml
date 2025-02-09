@@ -5,6 +5,7 @@
     <classes>
       <class name="ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification">
         <methods>
+          <include name="setup"/>
           <include name="LoadMethods"/>
           <include name="prospectCaseCreationAndVarification"/>
           <include name="Loadlogfile"/>

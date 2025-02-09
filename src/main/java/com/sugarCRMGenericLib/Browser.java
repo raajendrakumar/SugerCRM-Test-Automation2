@@ -1,15 +1,27 @@
 package com.sugarCRMGenericLib;
 
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.asserts.SoftAssert;
+
 import com.sugerCRMPageObjectLib.SugarCRMLogin;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Browser implements Constants {
 	public static WebDriver driver;
@@ -17,6 +29,11 @@ public class Browser implements Constants {
 	private static String UTILS = "Utils";
 	public static SoftAssert ast;
 	public static Logger logger = Logger.getLogger("LoggerCreation");
+	public static Actions action;
+
+	MutableCapabilities capabilities = new MutableCapabilities();
+
+	HashMap<String, Object> bstackOptions = new HashMap<String, Object>();
 
 	@BeforeSuite
 	public void Loadlogfile() throws Exception {
@@ -40,10 +57,15 @@ public class Browser implements Constants {
 
 		} else if (browser.equalsIgnoreCase("Chrome")) {
 			try {
-				// ChromeDriver driver = new ChromeDriver();
-				System.setProperty("webdriver.chrome.driver", "C://Docs//Driver//chromedriver.exe");
+
+				WebDriverManager.chromedriver().setup();
+				ChromeOptions options = new ChromeOptions();
+				// options.addArguments("headless");
+				options.addArguments("--disable-notifications");
+				options.setHeadless(true);
+				WebDriver driver = new ChromeDriver(options);
 				logger.info("Connecting to Chrome browser");
-				driver = new ChromeDriver();
+				driver.manage().window().maximize();
 				logger.info("Opened  Chrome browser");
 			} catch (Exception e) {
 				logger.error("Unable to Open Chrome Browser " + e.getMessage());
@@ -51,7 +73,8 @@ public class Browser implements Constants {
 			}
 		} else if (browser.equalsIgnoreCase("edge")) {
 			try {
-				System.setProperty("webdriver.edge.driver", "C://Docs//Driver//edgedriver.exe");
+				WebDriverManager.edgedriver().setup();
+
 				logger.info("Connecting to InternetExplorer browser");
 				driver = new EdgeDriver();
 				logger.info("Opened InternetExplorer browser");
@@ -79,14 +102,19 @@ public class Browser implements Constants {
 		}
 
 		sclogin = PageFactory.initElements(driver, SugarCRMLogin.class);
-		sclogin.slogin();
+		// sclogin.slogin();
 
 	}
 
-	/*
-	 * @BeforeMethod public void setup() throws InterruptedException {
-	 * 
-	 * driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); }
-	 */
+	@BeforeMethod
+	public void setup() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		sclogin.slogin();
+	}
 
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
+
+	}
 }

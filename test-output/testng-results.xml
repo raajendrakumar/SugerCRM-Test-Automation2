@@ -2,40 +2,50 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-08T22:08:45 IST" name="Default suite" finished-at="2025-02-08T22:10:22 IST" duration-ms="96583">
+  <suite started-at="2025-02-09T12:20:41 IST" name="Default suite" finished-at="2025-02-09T12:21:30 IST" duration-ms="49321">
     <groups>
     </groups>
-    <test started-at="2025-02-08T22:08:45 IST" name="Default test" finished-at="2025-02-08T22:10:22 IST" duration-ms="96583">
+    <test started-at="2025-02-09T12:20:41 IST" name="Default test" finished-at="2025-02-09T12:21:30 IST" duration-ms="49321">
       <class name="ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification">
-        <test-method is-config="true" signature="Loadlogfile()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@36ebc363]" started-at="2025-02-08T22:08:45 IST" name="Loadlogfile" finished-at="2025-02-08T22:08:45 IST" duration-ms="68" status="PASS">
+        <test-method is-config="true" signature="Loadlogfile()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@5bda8e08]" started-at="2025-02-09T12:20:40 IST" name="Loadlogfile" finished-at="2025-02-09T12:20:41 IST" duration-ms="84" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Loadlogfile -->
-        <test-method is-config="true" signature="getBrowser()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@36ebc363]" started-at="2025-02-08T22:08:45 IST" name="getBrowser" finished-at="2025-02-08T22:09:00 IST" duration-ms="15043" status="PASS">
+        <test-method is-config="true" signature="getBrowser()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@5bda8e08]" started-at="2025-02-09T12:20:41 IST" name="getBrowser" finished-at="2025-02-09T12:20:54 IST" duration-ms="13390" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getBrowser -->
-        <test-method is-config="true" signature="LoadMethods()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@36ebc363]" started-at="2025-02-08T22:09:00 IST" name="LoadMethods" finished-at="2025-02-08T22:09:00 IST" duration-ms="37" status="PASS">
+        <test-method is-config="true" signature="LoadMethods()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@5bda8e08]" started-at="2025-02-09T12:20:54 IST" name="LoadMethods" finished-at="2025-02-09T12:20:54 IST" duration-ms="38" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoadMethods -->
-        <test-method signature="prospectCaseCreationAndVarification()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@36ebc363]" started-at="2025-02-08T22:09:00 IST" name="prospectCaseCreationAndVarification" finished-at="2025-02-08T22:10:22 IST" duration-ms="81391" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@5bda8e08]" started-at="2025-02-09T12:20:54 IST" name="setup" finished-at="2025-02-09T12:21:01 IST" duration-ms="6844" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="prospectCaseCreationAndVarification()[pri:0, instance:ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification@5bda8e08]" started-at="2025-02-09T12:21:01 IST" name="prospectCaseCreationAndVarification" finished-at="2025-02-09T12:21:30 IST" duration-ms="28699" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Element <span class="edit"> is not clickable at point (423,282) because another element <div class="select2-result-label"> obscures it
+              <![CDATA[no such element: Unable to locate element: {"method":"partial link text","selector":"DevTest_"}
+  (Session info: MicrosoftEdge=131.0.2903.99)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-EF3RM9N', ip: '192.168.29.128', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 135.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20250130195129, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 1728, moz:profile: C:\Users\Dell\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: 1256c0f4-dd80-4554-a2ac-d1f878cc8758]]>
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 131.0.2903.99, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:63300}, msedge: {msedgedriverVersion: 131.0.2903.146 (99fcb90c1ee..., userDataDir: C:\Users\Dell\AppData\Local...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bf1366ac7600af213a15ec93849d81b1
+*** Element info: {Using=partial link text, value=DevTest_}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: Element <span class="edit"> is not clickable at point (423,282) because another element <div class="select2-result-label"> obscures it
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"partial link text","selector":"DevTest_"}
+  (Session info: MicrosoftEdge=131.0.2903.99)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-EF3RM9N', ip: '192.168.29.128', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 135.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20250130195129, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 1728, moz:profile: C:\Users\Dell\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: 1256c0f4-dd80-4554-a2ac-d1f878cc8758
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 131.0.2903.99, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:63300}, msedge: {msedgedriverVersion: 131.0.2903.146 (99fcb90c1ee..., userDataDir: C:\Users\Dell\AppData\Local...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bf1366ac7600af213a15ec93849d81b1
+*** Element info: {Using=partial link text, value=DevTest_}
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -45,15 +55,16 @@ at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCo
 at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy16.click(Unknown Source)
-at com.sugarCRMGenericLib.WebDriverCommonLib.buttonClick(WebDriverCommonLib.java:405)
-at com.sugerCRMPageObjectLib.HomePage.Clickpromgr(HomePage.java:364)
-at ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification.prospectCaseCreationAndVarification(Tc_sugerCRM_001_ProspectCreationAndVerification.java:63)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByPartialLinkText(RemoteWebDriver.java:388)
+at org.openqa.selenium.By$ByPartialLinkText.findElement(By.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy17.isEnabled(Unknown Source)
+at com.sugarCRMGenericLib.WebDriverCommonLib.buttonClick(WebDriverCommonLib.java:402)
+at com.sugerCRMPageObjectLib.HomePage.ClickcrdOrg(HomePage.java:319)
+at ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification.prospectCaseCreationAndVarification(Tc_sugerCRM_001_ProspectCreationAndVerification.java:49)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
@@ -82,7 +93,7 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- prospectCaseCreationAndVarification -->
