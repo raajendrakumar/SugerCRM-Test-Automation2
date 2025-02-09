@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification">
+      <class name="ProspectTestCases.Tc_sugarCRM_001_ProspectCreationAndVerification2">
         <methods>
           <include name="setup"/>
           <include name="LoadMethods"/>
-          <include name="prospectCaseCreationAndVarification"/>
+          <include name="tearDown"/>
           <include name="Loadlogfile"/>
           <include name="getBrowser"/>
+          <include name="prospectCaseCreationAndVerification"/>
         </methods>
-      </class> <!-- ProspectTestCases.Tc_sugerCRM_001_ProspectCreationAndVerification -->
+      </class> <!-- ProspectTestCases.Tc_sugarCRM_001_ProspectCreationAndVerification2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

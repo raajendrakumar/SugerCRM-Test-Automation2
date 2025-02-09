@@ -347,8 +347,8 @@ public class HomePage extends WebDriverCommonLib {
 		buttonClick(sublnk);
 	}
 
-	public void ClickcapName() {
-		waitForElementToBePresent(capName);
+	public void ClickcapName() throws InterruptedException {
+		Thread.sleep(3000);
 		buttonClick(capName);
 	}
 
@@ -501,8 +501,8 @@ public class HomePage extends WebDriverCommonLib {
 		buttonClick(systemdetail);
 	}
 
-	public void TextProspectNo() {
-		getText(ProspectNo);
+	public String TextProspectNo() {
+		return getText(ProspectNo);
 	}
 
 	// ---For selectSBU---//

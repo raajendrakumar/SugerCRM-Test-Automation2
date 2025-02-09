@@ -37,17 +37,20 @@ public class SugarCRMLogin extends WebDriverCommonLib {
 
 	// ---For EnterUserName---//
 	public void enterUserName(String uname) {
+		waitForElementToBePresent(username1);
 		entervalue(uname, username1);
 
 	}
 
 	// ---For EnterPassword---//
 	public void enterPassword(String pass) {
+		waitForElementToBePresent(password1);
 		entervalue(pass, password1);
 	}
 
 	// ---For ClickLoginBtn---//
 	public void clickLoginBtn() {
+		waitForElementToBePresent(slogin);
 		buttonClick(slogin);
 
 	}
@@ -62,7 +65,6 @@ public class SugarCRMLogin extends WebDriverCommonLib {
 			buttonClick(slogin);
 			logger.info("Logged in Successfully");
 		} catch (Exception e) {
-
 			ast.assertTrue(false, "Unable to Login");
 			logger.error("Login Failed " + e.getMessage());
 		}
